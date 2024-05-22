@@ -19,64 +19,57 @@
           <h2>Certificate Verification Portal</h2>
         </div>
         <div class="app-body">
-          <form>
+          <form id="myForm">
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="inputName4"
-                  ><b>Name</b><span class="required"></span
-                ></label>
+                <label for="inputName4"><b>Name</b><span></span></label>
                 <input
-                  type="name"
+                  type="text"
                   class="form-control"
                   id="inputName4"
                   placeholder="Enter Your Full Name"
-                  required
                 />
               </div>
               <div class="form-group col-md-10">
-                <label for="inputRollNo4"
-                  ><b>Certificate ID</b><span class="required"></span
+                <label for="inputCertificateID4"
+                  ><b>Certificate ID</b><span></span
                 ></label>
                 <input
-                  type="certificate-id"
+                  type="text"
                   class="form-control"
                   id="inputCertificateID4"
                   placeholder="Enter Your Certificate ID"
-                  required
                 />
               </div>
               <div class="form-group col-md-10">
-                <label for="inputRollNo4"
-                  ><b>Public Key</b><span class="required"></span
+                <label for="inputPublickey4"
+                  ><b>Public Key</b><span></span
                 ></label>
                 <input
-                  type="public-key"
+                  type="text"
                   class="form-control"
                   id="inputPublickey4"
                   placeholder="Enter Your Public Key"
-                  required
                 />
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-10">
-                <label for="inputBoard"
-                  ><b>Level of Study</b><span class="required"></span
+                <label for="inputLevelOfStudy"
+                  ><b>Level of Study</b><span></span
                 ></label>
-                <select id="inputBoard" class="form-control" required>
+                <select id="inputLevelOfStudy" class="form-control">
                   <option selected>None Selected</option>
                   <option>Matric (SSC)</option>
                   <option>Intermediate (HSSC)</option>
                 </select>
               </div>
               <div class="form-group col-md-10">
-                <label for="inputBoard"
-                  ><b>Board</b><span class="required"></span
-                ></label>
-                <select id="inputBoard" class="form-control" required>
+                <label for="inputBoard"><b>Board</b><span></span></label>
+                <select id="inputBoard" class="form-control">
                   <option selected>None Selected</option>
                   <option>BISE Lahore</option>
-                  <option>BISE Gujranwala Lahore</option>
+                  <option>BISE Gujranwala</option>
                   <option>BISE Sahiwal</option>
                   <option>BISE Bahawalpur</option>
                   <option>BISE DG Khan</option>
@@ -98,14 +91,17 @@
                 </label>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary" id="verificationForm">
               Verify Certificate
             </button>
           </form>
+          <div id="result"></div>
         </div>
-        <div id="result"></div>
       </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
