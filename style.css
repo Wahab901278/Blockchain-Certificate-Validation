@@ -24,3 +24,8 @@
 .form-group {
   margin-bottom: 20px; /* Adjust the value as needed */
 }
+
+.btn.btn-primary:hover {
+  background-color: lightblue;
+  color: blue;
+}

@@ -22,7 +22,9 @@
           <form id="myForm">
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="inputName4"><b>Name</b><span></span></label>
+                <label for="inputName4"
+                  ><b>Name</b><span class="required"></span
+                ></label>
                 <input
                   type="text"
                   class="form-control"
@@ -32,7 +34,7 @@
               </div>
               <div class="form-group col-md-10">
                 <label for="inputCertificateID4"
-                  ><b>Certificate ID</b><span></span
+                  ><b>Certificate ID</b><span class="required"></span
                 ></label>
                 <input
                   type="text"
@@ -43,7 +45,7 @@
               </div>
               <div class="form-group col-md-10">
                 <label for="inputPublickey4"
-                  ><b>Public Key</b><span></span
+                  ><b>Public Key</b><span class="required"></span
                 ></label>
                 <input
                   type="text"
@@ -85,8 +87,10 @@
                 />
                 <label class="form-check-label" for="gridCheck">
                   <b
-                    >I acknowledge that the information provided above is
-                    correct</b
+                    >I confirm that the information provided above is accurate
+                    to the best of my knowledge. I understand that any changes
+                    to the student's record may result in permanent blocking of
+                    the certificate.</b
                   >
                 </label>
               </div>
@@ -95,7 +99,7 @@
               Verify Certificate
             </button>
           </form>
-          <div id="result"></div>
+          <div><b id="result"></b></div>
         </div>
       </div>
     </div>
