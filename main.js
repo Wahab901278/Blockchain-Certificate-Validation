@@ -1,6 +1,6 @@
 
-// import SHA256 from 'crypto-js/sha256.js'; // This is used when you are using node
-let SHA256 = CryptoJS.SHA256; // This is used when you are using browser
+import SHA256 from 'crypto-js/sha256.js'; // This is used when you are using node
+// let SHA256 = CryptoJS.SHA256; // This is used when you are using browser
 
 
 class Data {
@@ -50,6 +50,7 @@ class Blockchain {
             const currentBlock = this.chain[i];
             const previousBlock = this.chain[i - 1];
             if (currentBlock.hash !== currentBlock.calculateHash()) {
+                currentBlock.hash=currentBlock.calculateHash();
                 return false;
             }
             if (currentBlock.previousHash !== previousBlock.hash) {
@@ -70,44 +71,44 @@ async function fetchData() {
             const newBlock = new Block(entry.id, entry.date, entry.details, entry.publickey, myBlockChain.getLatestBlock().hash);
             myBlockChain.addBlock(newBlock);
         });
-        console.log(JSON.stringify(myBlockChain,"",3)); 
+        console.log(JSON.stringify(myBlockChain,"",3)); // Comment in when you want to see that the blockchain is valid or not after making some changes.
     }; 
 
     
     
     // console.log(JSON.stringify(myBlockChain,"",3)); // due to async nature of fetch data, this will run before the data is fetched
-     fetchData();
+    //  fetchData();
 
 
 
 // Comment in the following to run node main.js // The code below this will be able to execute front-end.
-document.getElementById('myForm').addEventListener('submit', function (event) {
-    console.log('Form submitted');
-    event.preventDefault();
+// document.getElementById('myForm').addEventListener('submit', function (event) {
+//     console.log('Form submitted');
+//     event.preventDefault();
 
-    const inputName = document.getElementById('inputName4').value;
-    const inputCertificateID = document.getElementById('inputCertificateID4').value;
-    const inputPublickey = document.getElementById('inputPublickey4').value;
-    isVerified = ()=>{
-        for (let i = 0; i < myBlockChain.chain.length; i++) {
-            if (myBlockChain.chain[i].data.name === inputName && myBlockChain.chain[i].data.CertificateID === inputCertificateID && myBlockChain.chain[i].publicKey === inputPublickey) {
-                return true;
-            }
-        }
-    }
+//     const inputName = document.getElementById('inputName4').value;
+//     const inputCertificateID = document.getElementById('inputCertificateID4').value;
+//     const inputPublickey = document.getElementById('inputPublickey4').value;
+//     isVerified = ()=>{
+//         for (let i = 0; i < myBlockChain.chain.length; i++) {
+//             if (myBlockChain.chain[i].data.name === inputName && myBlockChain.chain[i].data.CertificateID === inputCertificateID && myBlockChain.chain[i].publicKey === inputPublickey) {
+//                 return true;
+//             }
+//         }
+//     }
     
-    if (inputName === '' || inputCertificateID === '' || inputPublickey === '') {
-        document.getElementById('result').textContent = 'Please fill all necessary fields';
-        return;
-    }
+//     if (inputName === '' || inputCertificateID === '' || inputPublickey === '') {
+//         document.getElementById('result').textContent = 'Please fill all necessary fields';
+//         return;
+//     }
 
 
-    if (isVerified()) {
-        document.getElementById('result').textContent = 'Certificate is verified';
-    } else {
-        document.getElementById('result').textContent = 'Certificate is not verified';
-    }
-});
+//     if (isVerified()) {
+//         document.getElementById('result').textContent = 'Certificate is verified';
+//     } else {
+//         document.getElementById('result').textContent = 'Certificate is not verified';
+//     }
+// });
 // -------------------------------------------------------------------------------------------------------
 // fetchData();
 
@@ -117,6 +118,6 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
 //     myBlockChain.chain[1].data.name = 'Shahzaib Ali';
 //     myBlockChain.chain[1].data.CertificateID = 'B47612';
 //     console.log('Is blockchain valid? ' + myBlockChain.isChainValid());
-    
+//     console.log(JSON.stringify(myBlockChain,"",3)); 
 // });
 
